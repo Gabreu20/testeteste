@@ -25,7 +25,8 @@ public class locadora {
         
         Dono dono = new Dono(dados);
 
-        System.out.println("cnpj: " + dono.cnpj + "\nsenha: " + dono.senha + "\nnCarros: " + dono.numCar + "\nsaldo: " + dono.saldoCompanhia);
+        System.out.println("cnpj: " + dono.cnpj + "\nsenha: " + dono.senha + "\nnCarros: " + dono.numCar + "\nsaldo: " + dono.saldoCompanhia
+        + "\nnome: " + dono.nome);
         
 
 

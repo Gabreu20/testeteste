@@ -1,10 +1,16 @@
 import java.util.List;
 
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author gabreu e lucas
  */
 public class Dono {
+    String nome = "";
+    String CPF = "";
     String senha = "";
     String cnpj = "";
     int numCar = 0;
@@ -20,6 +26,31 @@ public class Dono {
             //pega todas as informações da string de dados.
             for(int i=12;i<dados.length();i++){
                 if(dados.charAt(i)=='='){
+                     if(codigo==5){
+                        while(dados.charAt(i)!='\n'){
+                            i++;
+                            input=input+dados.charAt(i);
+                        }
+                        input=input.substring(0, input.length() - 1);
+                        i++;
+                        CPF=input;
+                        input="";
+                        codigo=6;
+                    }
+
+                    else if(codigo==4){
+                        while(dados.charAt(i)!='\n'){
+                            i++;
+                            input=input+dados.charAt(i);
+                        }
+                        input=input.substring(0, input.length() - 1);
+                        i++;
+                        nome=input;
+                        input="";
+                        codigo=5;
+                    }
+
+
                     if(codigo==3){
                         while(dados.charAt(i)!='\n'){
                             i++;
@@ -33,7 +64,7 @@ public class Dono {
                     
                     }
 
-                    if(codigo==2){
+                    else if(codigo==2){
                         while(dados.charAt(i)!='\n'){
                             i++;
                             input=input+dados.charAt(i);
@@ -45,7 +76,7 @@ public class Dono {
                         codigo=3;
                     }
 
-                    if(codigo==1){
+                    else if(codigo==1){
                         while(dados.charAt(i)!='\n'){
                             i++;
                             input=input+dados.charAt(i);
@@ -57,6 +88,7 @@ public class Dono {
                         codigo=2;
                     }
 
+                    else 
                     if(codigo==0){
                         while(dados.charAt(i)!='\n'){
                             i++;
@@ -72,10 +104,37 @@ public class Dono {
             }
         }
         else{
-            //caso ainda n exista o dono as informações podem ser inicializadas pelo usuario
-        }
-}
+            JTextField nomeI = new JTextField();
+            JTextField cpfI = new JTextField();
+            JTextField cnpjI = new JTextField();
+            JTextField senhaI = new JPasswordField();
+            JTextField carrosI = new JTextField();
+            JTextField saldoI = new JTextField();
 
+            Object[] message = {
+                    "Nome:", nomeI,
+                    "CPF: ", cpfI,
+                    "CNJP: ",cnpjI,
+                    "Numero de Carro:",carrosI,
+                    "Saldo: " ,saldoI,
+                    "senha:", senhaI,
+
+            };
+
+            int option = JOptionPane.showConfirmDialog(null, message, "Registro do dono", JOptionPane.OK_CANCEL_OPTION);
+            if (option == JOptionPane.OK_OPTION) {
+                nome=nomeI.getText();
+                CPF=cpfI.getText();
+                cnpj=cnpjI.getText();
+                numCar=Integer.parseInt(carrosI.getText());
+                saldoCompanhia=Integer.parseInt(saldoI.getText());
+                senha=senhaI.getText();
+            } else {
+                System.out.println("Login canceled");
+            }
+        }
+    }    
+    
     public Boolean logar(String senha_){
         if(senha_ == senha)
             return true;      
