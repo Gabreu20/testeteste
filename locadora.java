@@ -2,15 +2,36 @@
  *
  * @author gabreu e lucas
  */
+
+import java.io.File; // biblioteca para ler arquivos;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import java.lang.String;
 import java.util.List;
 import java.util.ArrayList;
 
 
 public class locadora {
-    public static void main(String[] args) {
-        int[] a = new int[3];
-        a[0] = 12;
+    public static void main(String[] args) throws FileNotFoundException {
+
+        File arquivo = new File("data.txt");
+        Scanner leitura = new Scanner(arquivo);
+
+        String dados = "";
+        while(leitura.hasNextLine()){
+            dados=dados+leitura.nextLine()+'\n';
+        }
+        
+        Dono dono = new Dono(dados);
+
+        System.out.println("cnpj: " + dono.cnpj + "\nsenha: " + dono.senha + "\nnCarros: " + dono.numCar + "\nsaldo: " + dono.saldoCompanhia);
+        
+
+
+
+        /*int[] a = new int[3];
+        a[0] = 20;
         a[1] = 20;
         a[2] = 2000;
         Dono dono = new Dono();
@@ -20,7 +41,7 @@ public class locadora {
 
         ArrayList<carro> carros = new ArrayList<>();
         carros.add(cCar);
-
+        */
         
         /*
         String teste = "AAAAAA";

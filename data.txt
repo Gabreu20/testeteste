@@ -1,0 +1,5 @@
+DonoExiste=1
+DonoCNPJ=5156151551
+DonoSenha=LucasFoda123
+NumeroDeCarros=12
+SaldoDaCompanhia=2345678
