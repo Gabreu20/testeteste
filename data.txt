@@ -1,0 +1,7 @@
+DonoExiste=1
+DonoCNPJ=5156151551
+DonoSenha=00
+NumeroDeCarros=12
+SaldoDaCompanhia=2345678
+Dononome=Lucas Epico
+Donocpf=12
