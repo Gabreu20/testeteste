@@ -28,13 +28,22 @@ public class Dono {
                 return null;
     }
 
-    public void venderCarro(String PLACA, float PRECO, List carros){
+    public void venderCarro(String PLACA, float PRECO, List<carro> carros){
         saldoCompanhia += PRECO;
         numCar--;
         for(int i = 0; i < carros.size(); i++){
-            //carros.get(i);
+            carro a = carros.get(i);
+            if(a.placa == PLACA){
+                carros.remove(i);
+            }      
         }
     }
     
+    public void contratarAtendente(String SENHA, float SALARIO, int BONUS){
+        //atendende at = new atendente(SENHA,SALARIO,BONUS);
+    }
+    public void demitirAtendente(List<atendente> at){ //ainda n existe a class atendente, por isso os erros
+        at.remove(i);
+    }
    
 }
